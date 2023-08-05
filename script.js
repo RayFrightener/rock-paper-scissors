@@ -8,7 +8,11 @@ function getComputerChoice(){
 function playRound(playerSelection, computerSelection) {
     const lowerCaseInput = playerSelection.toLowerCase();
 if(computerSelection === lowerCaseInput){
+<<<<<<< HEAD
     return "Draw";
+=======
+    return "The match is a draw, both parties chose the same option.";
+>>>>>>> 4a434ec9dda15500b626c57953e455996a19470e
 }else if(computerSelection === "paper" && lowerCaseInput === "scissor"){
     return "You win! Scissors beat Rock.";
 }else if(computerSelection === "paper" && lowerCaseInput === "rock"){
@@ -28,6 +32,7 @@ if(computerSelection === lowerCaseInput){
 }
 
 
+<<<<<<< HEAD
 // const playerSelection = "RoCk";
 // const computerSelection = getComputerChoice();
 
@@ -121,3 +126,9 @@ function game(){
 }
 
 game();
+=======
+const playerSelection = "RoCk";
+const computerSelection = getComputerChoice();
+
+console.log(playRound(playerSelection, computerSelection));
+>>>>>>> 4a434ec9dda15500b626c57953e455996a19470e
