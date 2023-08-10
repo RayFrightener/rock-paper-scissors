@@ -28,16 +28,7 @@ if(computerSelection === lowerCaseInput){
 }
 
 
-// function userInput(){
-//     let input = window.prompt("Choose between Rock, Paper and Scissors: ");
-//     return input;
-// }
 
-// function wrongInput(){
-//     let rightInput = window.prompt("Please select a valip weapon: ");
-//     return rightInput;
-    
-// }
 
 const resultsDiv = document.querySelector("#results");
 function updateResults(message){
@@ -45,9 +36,6 @@ function updateResults(message){
     paragraph.textContent = message;
     resultsDiv.appendChild(paragraph);
 }
-
-
-
 
 const rockButton = document.querySelector("#rock");
 const paperButton = document.querySelector("#paper");
@@ -74,7 +62,16 @@ rockButton.addEventListener("click", () => {
     updateResults(result);
   });
 
+    // function userInput(){
+    //     let input = window.prompt("Choose between Rock, Paper and Scissors: ");
+    //     return input;
+    // }
 
+    // function wrongInput(){
+    //     let rightInput = window.prompt("Please select a valip weapon: ");
+    //     return rightInput;
+        
+    // }
     // function game(){
     //     let userChoice = userInput();
     //     const computerChoice = getComputerChoice();
