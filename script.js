@@ -28,42 +28,27 @@ if(computerSelection === lowerCaseInput){
 }
 
 
-function userInput(){
-    let input = window.prompt("Choose between Rock, Paper and Scissors: ");
-    return input;
-}
+// function userInput(){
+//     let input = window.prompt("Choose between Rock, Paper and Scissors: ");
+//     return input;
+// }
 
-function wrongInput(){
-    let rightInput = window.prompt("Please select a valip weapon: ");
-    return rightInput;
+// function wrongInput(){
+//     let rightInput = window.prompt("Please select a valip weapon: ");
+//     return rightInput;
     
+// }
+
+const resultsDiv = document.querySelector("#results");
+function updateResults(message){
+    const paragraph = document.createElement("p");
+    paragraph.textContent = message;
+    resultsDiv.appendChild(paragraph);
 }
 
-// function game(){
-//     let userChoice = userInput();
-//     const computerChoice = getComputerChoice();
-//     let userScore = 0;
-//     let computerScore = 0;
-//     let match1 = playRound(userChoice,computerChoice);
-//     if(match1 === "You win! Scissors beat Rock." || 
-//     match1 === "You win! Rock beats Scissor." ||
-//     match1 ===  "You win! Paper beats Rock."){
-//         userScore++;
-//     }else if(match1 === "You Lose! Paper beats Rock."|| match1 === "You lose! Scissor beats Paper."|| match1 === "You lose! Rock beats Scissor." ) {
-//         computerScore++;
-//     } else{
-//         let rightInput = wrongInput().toLocaleLowerCase();
-//         let rematch = playRound(rightInput,computerChoice);
-//         if( rematch === "You win! Scissors beat Rock." || 
-//             rematch === "You win! Rock beats Scissor." ||
-//             rematch ===  "You win! Paper beats Rock."){
-//         userScore++;
-//     } else if(rematch === "You Lose! Paper beats Rock."|| rematch === "You lose! Scissor beats Paper."|| rematch === "You lose! Rock beats Scissor." ) {
-//         computerScore++;
-//     }
 
-//     }
-//     console.log("The score is Computer-" + computerScore + " You-" + userScore );
+
+
 const rockButton = document.querySelector("#rock");
 const paperButton = document.querySelector("#paper");
 const scissorsButton = document.querySelector("#scissors");
@@ -72,23 +57,49 @@ rockButton.addEventListener("click", () => {
     const playerSelection = "rock";
     const computerSelection = getComputerChoice();
     const result = playRound(playerSelection, computerSelection);
-    console.log(result);
+    updateResults(result);
   });
   
   paperButton.addEventListener("click", () => {
     const playerSelection = "paper";
     const computerSelection = getComputerChoice();
     const result = playRound(playerSelection, computerSelection);
-    console.log(result);
+    updateResults(result);
   });
   
   scissorsButton.addEventListener("click", () => {
     const playerSelection = "scissors";
     const computerSelection = getComputerChoice();
     const result = playRound(playerSelection, computerSelection);
-    console.log(result);
+    updateResults(result);
   });
 
+
+    // function game(){
+    //     let userChoice = userInput();
+    //     const computerChoice = getComputerChoice();
+    //     let userScore = 0;
+    //     let computerScore = 0;
+    //     let match1 = playRound(userChoice,computerChoice);
+    //     if(match1 === "You win! Scissors beat Rock." || 
+    //     match1 === "You win! Rock beats Scissor." ||
+    //     match1 ===  "You win! Paper beats Rock."){
+    //         userScore++;
+    //     }else if(match1 === "You Lose! Paper beats Rock."|| match1 === "You lose! Scissor beats Paper."|| match1 === "You lose! Rock beats Scissor." ) {
+    //         computerScore++;
+    //     } else{
+    //         let rightInput = wrongInput().toLocaleLowerCase();
+    //         let rematch = playRound(rightInput,computerChoice);
+    //         if( rematch === "You win! Scissors beat Rock." || 
+    //             rematch === "You win! Rock beats Scissor." ||
+    //             rematch ===  "You win! Paper beats Rock."){
+    //         userScore++;
+    //     } else if(rematch === "You Lose! Paper beats Rock."|| rematch === "You lose! Scissor beats Paper."|| rematch === "You lose! Rock beats Scissor." ) {
+    //         computerScore++;
+    //     }
+
+    //     }
+    //     console.log("The score is Computer-" + computerScore + " You-" + userScore );
     // let userchoice2 = userInput();
     // let match2 = playRound(userchoice2,computerChoice);
     // if(match2 === "You win! Scissors beat Rock." || 
@@ -139,6 +150,6 @@ rockButton.addEventListener("click", () => {
     // } else{
     //     console.log("Computer won with the score of:" + computerScore+"|"+userScore);
     // }
-// }
+    // }
 
-// game();
+    // game();
