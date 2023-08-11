@@ -14,7 +14,7 @@ if(computerSelection === lowerCaseInput){
 }else if(computerSelection === "paper" && lowerCaseInput === "rock"){
     return "You Lose! Paper beats Rock.";
 }else if(computerSelection === "scissors" && lowerCaseInput === "rock"){
-    return "You win! Rock beats Scissor.";
+    return "You win! Rock beats Scissors.";
 }else if(computerSelection === "scissors" && lowerCaseInput === "paper"){
     return "You lose! Scissors beats Paper.";
 }else if(computerSelection === "rock" && lowerCaseInput === "paper"){
@@ -37,6 +37,43 @@ function updateResults(message){
     resultsDiv.appendChild(paragraph);
 }
 
+const feedback = document.createElement("p");
+
+let computerScore = 0;
+let playerScore = 0;
+
+function runningScore(text) {
+    if (text === "You win! Scissors beat Rock." ||
+        text === "You win! Rock beats Scissors." ||
+        text === "You win! Paper beats Rock.") {
+      playerScore++;
+      
+      feedback.textContent = `Score: Computer: ${computerScore} You: ${playerScore}`;
+      
+      const scoreKeep = document.querySelector("#score-keep"); 
+      scoreKeep.appendChild(feedback); 
+    }
+    else if (text === "You Lose! Paper beats Rock." ||
+             text === "You lose! Scissors beats Paper." ||
+             text === "You lose! Rock beats Scissors.") {
+      computerScore++;
+  
+      feedback.textContent = `Score: Computer: ${computerScore} You: ${playerScore}`;
+        
+      const scoreKeep = document.querySelector("#score-keep"); 
+      scoreKeep.appendChild(feedback); 
+    }
+    else if(text === "Draw"){
+        feedback.textContent = `Score: Computer: ${computerScore} You: ${playerScore}`;
+        
+        const scoreKeep = document.querySelector("#score-keep"); 
+        scoreKeep.appendChild(feedback); 
+    }
+
+    
+  }
+
+
 const rockButton = document.querySelector("#rock");
 const paperButton = document.querySelector("#paper");
 const scissorsButton = document.querySelector("#scissors");
@@ -46,6 +83,8 @@ rockButton.addEventListener("click", () => {
     const computerSelection = getComputerChoice();
     const result = playRound(playerSelection, computerSelection);
     updateResults(result);
+    runningScore(result);
+
   });
   
   paperButton.addEventListener("click", () => {
@@ -53,6 +92,7 @@ rockButton.addEventListener("click", () => {
     const computerSelection = getComputerChoice();
     const result = playRound(playerSelection, computerSelection);
     updateResults(result);
+    runningScore(result);
   });
   
   scissorsButton.addEventListener("click", () => {
@@ -60,6 +100,7 @@ rockButton.addEventListener("click", () => {
     const computerSelection = getComputerChoice();
     const result = playRound(playerSelection, computerSelection);
     updateResults(result);
+    runningScore(result);
   });
 
     // function userInput(){
