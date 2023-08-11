@@ -31,11 +31,12 @@ if(computerSelection === lowerCaseInput){
 
 
 const resultsDiv = document.querySelector("#results");
+const paragraph = document.createElement("p");
 function updateResults(message){
-    const paragraph = document.createElement("p");
     paragraph.textContent = message;
     resultsDiv.appendChild(paragraph);
 }
+
 
 const feedback = document.createElement("p");
 
@@ -43,7 +44,23 @@ let computerScore = 0;
 let playerScore = 0;
 
 function runningScore(text) {
-    if (text === "You win! Scissors beat Rock." ||
+
+    if (computerScore ===5){
+        paragraph.textContent = "You lose, Computer wins!";
+        resultsDiv.appendChild(paragraph);
+    }
+    else if (playerScore ===5){
+        paragraph.textContent = "You win, Computer loses!";
+        resultsDiv.appendChild(paragraph);
+    }
+     else if(text === "Draw"){
+        feedback.textContent = `Score: Computer: ${computerScore} You: ${playerScore}`;
+        
+        const scoreKeep = document.querySelector("#score-keep"); 
+        scoreKeep.appendChild(feedback); 
+    }
+     else {
+        if (text === "You win! Scissors beat Rock." ||
         text === "You win! Rock beats Scissors." ||
         text === "You win! Paper beats Rock.") {
       playerScore++;
@@ -58,17 +75,13 @@ function runningScore(text) {
              text === "You lose! Rock beats Scissors.") {
       computerScore++;
   
+       
+    }
       feedback.textContent = `Score: Computer: ${computerScore} You: ${playerScore}`;
         
       const scoreKeep = document.querySelector("#score-keep"); 
-      scoreKeep.appendChild(feedback); 
-    }
-    else if(text === "Draw"){
-        feedback.textContent = `Score: Computer: ${computerScore} You: ${playerScore}`;
-        
-        const scoreKeep = document.querySelector("#score-keep"); 
-        scoreKeep.appendChild(feedback); 
-    }
+      scoreKeep.appendChild(feedback);
+}
 
     
   }
@@ -84,6 +97,11 @@ rockButton.addEventListener("click", () => {
     const result = playRound(playerSelection, computerSelection);
     updateResults(result);
     runningScore(result);
+    if (computerScore >= 5) {
+        resultsDiv.textContent = "You lose, Computer wins!";
+    } else if (playerScore >= 5) {
+        resultsDiv.textContent = "You win, Computer loses!";
+    }
 
   });
   
@@ -93,6 +111,11 @@ rockButton.addEventListener("click", () => {
     const result = playRound(playerSelection, computerSelection);
     updateResults(result);
     runningScore(result);
+    if (computerScore >= 5) {
+        resultsDiv.textContent = "You lose, Computer wins!";
+    } else if (playerScore >= 5) {
+        resultsDiv.textContent = "You win, Computer loses!";
+    }
   });
   
   scissorsButton.addEventListener("click", () => {
@@ -101,6 +124,11 @@ rockButton.addEventListener("click", () => {
     const result = playRound(playerSelection, computerSelection);
     updateResults(result);
     runningScore(result);
+    if (computerScore >= 5) {
+        resultsDiv.textContent = "You lose, Computer wins!";
+    } else if (playerScore >= 5) {
+        resultsDiv.textContent = "You win, Computer loses!";
+    }
   });
 
     // function userInput(){
