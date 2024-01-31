@@ -128,3 +128,9 @@ if(computerSelection === lowerCaseInput){
     return "Input is wrong, please choose between rock, paper and scissors";
 }
 }
+
+const newGameButton = document.querySelector("#newGame");
+newGameButton.addEventListener("click", () => {
+    // Reload the page to start a new game
+    location.reload();
+});
