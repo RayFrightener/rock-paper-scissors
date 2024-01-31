@@ -17,7 +17,7 @@ function runningScore(text) {
         resultsDiv.appendChild(paragraph);
     }
      else if(text === "Draw"){
-        feedback.textContent = `Score: Computer: ${computerScore} You: ${playerScore}`;
+        feedback.textContent = `Computer: ${computerScore} You: ${playerScore}`;
         scoreKeep.appendChild(feedback); 
     }
      else {
@@ -32,7 +32,7 @@ function runningScore(text) {
       computerScore++;
        
     }
-      feedback.textContent = `Score: Computer: ${computerScore} You: ${playerScore}`;
+      feedback.textContent = `Computer: ${computerScore} You: ${playerScore}`;
       scoreKeep.appendChild(feedback);
     }   
 
